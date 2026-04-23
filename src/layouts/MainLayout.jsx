@@ -6,8 +6,12 @@ export default function MainLayout() {
 	return (
 		<div className="main-container">
 			<NavBar />
+			<div className="main-contact">
 			<SideBar />
-			{/*	<Outlet />*/}
+			<div className="page-wrapper">
+			<Outlet />
+			</div>
+			</div>
      		<footer className="footer">
 			   <span>@2026 HCare</span>
 			</footer>

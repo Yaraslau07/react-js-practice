@@ -5,7 +5,7 @@ export default function SideBar(){
     const links = [
     { "text": "Dashboard", "to": '/dashboard' },
     { "text": "Apointments", "to": '/apointments'},
-    { "text": "Medical staff", "to": '/staff'},
+    { "text": "Medical staff", "to": '/medical-staff'},
     { "text": "Feedback", "to": '/feedback'}
     ]
 
