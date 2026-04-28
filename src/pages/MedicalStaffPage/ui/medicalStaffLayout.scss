@@ -36,6 +36,11 @@
       &:hover {
         background-color: v.$primary-light;
       }
+      
+      &.active {
+        background-color: v.$primary-green;
+        color: v.$white;
+      }
     }
   }
 

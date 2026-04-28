@@ -2,37 +2,66 @@ import { useState } from "react";
 import { useGetMedicalStaffQuery } from "../../../entities/MedicalStaff/index.js";
 import './medicalStaffLayout.scss'
 import InlineError from "../../../shared/ui/InlineError/InlineError.jsx";
+import { MedicalStaffFilters } from "./MedicalStaffFilters.jsx"
+import { EmptySearch } from "../../../shared/ui/EmptySearch/EmptySearch.jsx";
+import { useSearchParams } from "react-router";
+import { Pagination } from "../../../features/StaffPagination/index.js";
 
 export function MedicalStaffLayout(){
-   const [currentPage, setCurrentPage] = useState(1) 
-   const [filters, setFilters] = useState({showAll : true, specialization: [] , languages: []})
+   const [filtersOpened, setFiltersOpened] = useState(false)
+   const [searchParams] = useSearchParams()
    
    const { data, error, isFetching, isError, refetch } = useGetMedicalStaffQuery()
    
    if (isFetching) return <div>Loading...</div>;
 
    const errorMessage = error?.data?.message || error?.error;
-   console.log(data)
-   const filteredDoctors = filters.showAll ? data.staff : data.staff.filter((doctor) => {
+
+   const activeSpecializations = searchParams.get("specializations")?.split('-') || []
+   const activeLanguages = searchParams.get("languages")?.split('-') || []
+   const activePage = Number(searchParams.get("page")) || 1
+   const showAll = activeSpecializations.length === 0 && activeLanguages.length === 0
+
+   const filteredDoctors = showAll ? data.staff : data.staff.filter((doctor) => {
      
-        const matchSpecialization = filters.specialization.length === 0 || filter.specialization.includes(doctor.specialization)
+        const matchSpecialization = activeSpecializations.length === 0 || activeSpecializations.includes(doctor.specialization)
         
-        const matchLanguages = filters.languages.length === 0 || filter.languages.some((lang) => doctor.languages.includes(lang))
+        const matchLanguages = activeLanguages.length === 0 || activeLanguages.some((lang) => doctor.languages.includes(lang))
 
         return matchLanguages && matchSpecialization
    })
+
+   const startIndex = (activePage - 1) * 10
+   const endIndex = startIndex + 10
+   const paginatedDoctors = filteredDoctors.slice(startIndex, endIndex)
+
+   const totalPages = Math.ceil(filteredDoctors.length / 10)
    
    return(
     <div className="medical-staff-page">
       <div className="page-header">
         <h1 className="page-title">Medical Staff</h1>
-        <button className="filter-btn" type="button">
-          <span className="filter-icon">⊶</span> Filter
+        <button 
+          className={`filter-btn ${filtersOpened ? 'active' : ''}`} 
+          type="button"
+          onClick={() => setFiltersOpened(!filtersOpened)}
+        >
+          Filter
         </button>
       </div>
+      {filtersOpened && (
+          <MedicalStaffFilters/>
+        )}
       {isError ? (
         <InlineError message={errorMessage} onRetry={refetch}/>
-      ) : (
+      ) : !isFetching && filteredDoctors?.length === 0 ? (
+             <EmptySearch 
+                message="No doctors match your criteria" 
+                subMessage="Try removing some filters to see more results." 
+             />
+      ) : 
+      (
+        <>
       <div className={`table-container ${isFetching ? "loading-overlay" : ""}`}>
         <table className="staff-table">
           <thead>
@@ -45,7 +74,7 @@ export function MedicalStaffLayout(){
             </tr>
           </thead>
           <tbody>
-            {filteredDoctors?.map((doctor) => (
+            {paginatedDoctors?.map((doctor) => (
               <tr key={doctor.id}>
                 <td className="name-cell">
                   <img 
@@ -78,10 +107,13 @@ export function MedicalStaffLayout(){
           </tbody>
         </table>
       </div>
-    )} 
-    {/*!isError && (
-       
-    )*/}
+      <div>
+      {totalPages > 1 && 
+        <Pagination totalPages = {totalPages}/>
+      }
+      </div>
+      </> 
+    )}
     </div> 
    )
 }
