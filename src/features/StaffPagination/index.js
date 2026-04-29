@@ -1,1 +1,1 @@
-export { Pagination } from "./ui/Pagination.jsx"
+export { Pagination } from "./ui/Pagination.jsx";

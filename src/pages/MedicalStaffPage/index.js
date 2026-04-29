@@ -1,1 +1,1 @@
-export { MedicalStaffLayout } from "./ui/MedicalStaffPage.jsx"
+export { MedicalStaffLayout } from "./ui/MedicalStaffPage.jsx";

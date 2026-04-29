@@ -1,1 +1,4 @@
-export { medicalStaffApi, useGetMedicalStaffQuery } from './api/getMedicalStaff';
+export {
+	medicalStaffApi,
+	useGetMedicalStaffQuery,
+} from "./api/getMedicalStaff";
