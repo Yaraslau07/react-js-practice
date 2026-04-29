@@ -1,1 +1,1 @@
-export { BookingModal } from "./ui/BookingModal.jsx";
+export { BookingModal, generateTimeSlotes } from "./ui/BookingModal.jsx";

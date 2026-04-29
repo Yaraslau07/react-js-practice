@@ -75,7 +75,6 @@
       font-size: 0.875rem;
     }
 
-    // Custom Column Styling
     .name-cell {
       display: flex;
       align-items: center;
@@ -108,7 +107,6 @@
       cursor: pointer;
       font-size: 0.875rem;
 
-      .calendar-icon { font-size: 1.1rem; }
       &:hover { text-decoration: underline; }
     }
 

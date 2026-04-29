@@ -4,10 +4,10 @@ import { addAppointment } from "../../../entities/Appointments";
 import { closeBookingModal } from "../../../shared/model/uiSlice";
 import "./bookingModal.scss";
 
-const generateTimeSlotes = (from, to) => {
+export const generateTimeSlotes = (from, to) => {
 	const timeSlots = [];
-	const start = parseInt(from);
-	const finish = parseInt(to);
+	const start = parseInt(from, 10);
+	const finish = parseInt(to, 10);
 	for (let i = start; i < finish; i++) {
 		const hour = i.toString().padStart(2, "0");
 		timeSlots.push(`${hour} : 00`);
@@ -51,9 +51,10 @@ export function BookingModal() {
 				doctorName: selectedDoctor.fullname,
 				date,
 				time,
+                doctorFrom: selectedDoctor.hoursFrom,
+                doctorTo: selectedDoctor.hoursTo
 			}),
 		);
-
 		dispatch(closeBookingModal());
 	};
 

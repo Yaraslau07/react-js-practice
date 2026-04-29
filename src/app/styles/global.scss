@@ -1,5 +1,9 @@
 @use '../../shared/styles/variables.scss' as v;
 
+body{
+  font-family: 'Times New Roman', Times, serif;
+}
+
 .footer {
   width: 100%;
   padding: 16px 24px;
