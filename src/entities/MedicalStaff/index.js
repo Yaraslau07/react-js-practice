@@ -1,0 +1,4 @@
+export {
+	medicalStaffApi,
+	useGetMedicalStaffQuery,
+} from "./api/getMedicalStaff";
