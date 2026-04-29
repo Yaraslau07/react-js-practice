@@ -12,7 +12,7 @@ const stylesHandler = isProduction
 
 /** @type {import("webpack").Configuration} */
 const config = {
-	entry: "./src/index.js",
+	entry: "./src/app/index.js",
 	output: {
 		path: path.resolve(__dirname, "dist"),
 		publicPath: "/",
@@ -20,6 +20,7 @@ const config = {
 	devServer: {
 		open: true,
 		host: "localhost",
+		historyApiFallback: true,
 	},
 	plugins: [
 		new HtmlWebpackPlugin({

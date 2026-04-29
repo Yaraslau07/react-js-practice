@@ -1,0 +1,137 @@
+@use "../../../shared/styles/variables.scss" as v;
+
+.inline-filters-panel {
+  background-color: v.$white;
+  border: 1px solid v.$gray-200;
+  border-radius: v.$border-radius-md;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: 0 1px 3px rgba(v.$gray-900, 0.05);
+
+  .filters-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .filter-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+
+  .row-label {
+    color: v.$gray-900;
+    font-weight: 600;
+    min-width: 130px;
+    padding-top: 0.125rem; 
+  }
+
+  .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+  }
+
+  .checkbox-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    position: relative;
+
+    input[type='checkbox'] {
+      position: absolute;
+      opacity: 0;
+      height: 0;
+      width: 0;
+
+      &:focus-visible ~ .custom-checkbox {
+        outline: 2px solid v.$primary-green;
+        outline-offset: 2px;
+      }
+
+      &:checked ~ .custom-checkbox {
+        background-color: v.$primary-green;
+        border-color: v.$primary-green;
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 5px;
+          top: 2px;
+          width: 4px;
+          height: 8px;
+          border: solid v.$white;
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg);
+        }
+      }
+
+      &:checked ~ .label-text {
+        color: v.$gray-900;
+        font-weight: 500;
+      }
+    }
+
+    .custom-checkbox {
+      position: relative;
+      width: 18px;
+      height: 18px;
+      border: 1px solid v.$gray-600;
+      border-radius: v.$border-radius-sm;
+      background-color: v.$white;
+      transition: all v.$transition-fast;
+      flex-shrink: 0; 
+    }
+
+    .label-text {
+      color: v.$gray-600;
+      transition: color v.$transition-fast;
+      user-select: none;
+    }
+
+    &:hover {
+      .custom-checkbox {
+        border-color: v.$primary-green;
+      }
+      .label-text {
+        color: v.$gray-900;
+      }
+    }
+  }
+
+  .filters-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 1rem;
+    border-top: 1px solid v.$gray-200;
+
+    .clear-all-btn {
+      background: transparent;
+      border: none;
+      color: v.$gray-600;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all v.$transition-fast;
+      padding: 0.5rem 1rem;
+      border-radius: v.$border-radius-sm;
+
+      &:hover {
+        color: v.$status-error-text;
+        background-color: v.$status-error-hover-bg;
+      }
+      
+      &:focus-visible {
+        outline: 2px solid v.$status-error-border;
+      }
+    }
+  }
+}
