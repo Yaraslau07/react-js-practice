@@ -121,8 +121,7 @@ export function MedicalStaffLayout() {
 												type="button"
 												onClick={() => handleBooking(doctor)}
 											>
-												<span className="calendar-icon">📅</span>
-												Book date
+											 📅	Book date
 											</button>
 										</td>
 										<td className="status-cell">{`${doctor.languages[0]}, ${doctor.languages[1]}`}</td>
