@@ -42,17 +42,18 @@ export const medicalStaffApi = dummyApi.injectEndpoints({
 					staff: response.users.map((user) => ({
 						id: user.id,
 						fullname: `${user.firstName} ${user.lastName}`,
+						image: user.image || null,
 						city: user.address?.city || "Tashkent",
 						country: user.address?.country || "Uzbekistan",
 						specialization: getRandomItem(specializations, user.id),
 						languages: getRandomItem(languages, user.id),
 						hoursFrom: getRandomItem(start_hours, user.id),
 						hoursTo: getRandomItem(end_hours, user.id),
-					})),
-				};
-			},
-		}),
-	}),
-});
+					}))
+				}
+			}
+		})
+	})
+})
 
-export const { useGetMedicalStaffQuery } = medicalStaffApi;
+export const { useGetMedicalStaffQuery } = medicalStaffApi

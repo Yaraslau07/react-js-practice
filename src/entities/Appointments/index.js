@@ -3,4 +3,4 @@ export {
 	default as appointmentsReducer,
 	deleteAppointment,
 	editAppointment,
-} from "./model/appointmentsSlice.js";
+} from "./model/appointmentsSlice.js"
