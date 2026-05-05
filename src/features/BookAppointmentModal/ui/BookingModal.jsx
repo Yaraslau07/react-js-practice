@@ -15,7 +15,7 @@ export const generateTimeSlotes = (from, to) => {
 	return timeSlots;
 };
 
-export function BookingModal() {
+export function BookingModal({triggerPopUp}) {
 	const { isBookingModalOpened, selectedDoctor } = useSelector(
 		(state) => state.ui,
 	);
@@ -57,6 +57,7 @@ export function BookingModal() {
 			}),
 		);
 		dispatch(closeBookingModal());
+		triggerPopUp()
 	};
 
 	return (
