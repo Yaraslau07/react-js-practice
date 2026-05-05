@@ -1,0 +1,163 @@
+@use "../../../shared/styles/variables.scss" as v;
+
+.feedback-container {
+    display: flex;
+    flex-direction: column;
+    margin: 40px auto;
+    max-width: 80%; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); 
+    border: 1px solid #eaeaea; 
+    border-radius: 8px; 
+    background: #fff;
+    overflow: hidden; 
+}
+
+.feedback-header {
+    width: 100%;
+    padding: 20px 30px;
+    
+    h1 {
+        margin: 0;
+        font-size: 1.25rem;
+        color: #333;
+    }
+}
+
+.feedback-img-container {
+    width: 100%;
+    
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+    }
+}
+
+.feedback-main {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px 30px 50px 30px;
+    box-sizing: border-box;
+}
+
+.feedback-main-header {
+    text-align: center;
+    margin-bottom: 40px;
+    
+    h2 {
+        font-size: 1.5rem;
+        margin: 0 0 10px 0;
+        color: #333;
+    }
+    
+    p {
+        margin: 0;
+        color: #a3a3a3;
+        font-size: 0.95rem;
+    }
+}
+
+.feedback-main-contant {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Spacing between the feedback cards */
+}
+
+.feedback-option {
+    width: 100%;
+    border: 1px solid #eaeaea; /* Light border for the cards */
+    border-radius: 8px;
+    padding: 30px;
+    box-sizing: border-box;
+    
+    h3 {
+        margin: 0 0 25px 0;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #333;
+    }
+}
+
+.feedback-rate-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+
+    button {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background-color: transparent;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease-in-out;
+        border: 1.5px solid transparent;
+
+        /* Generic hover scale effect */
+        &:hover {
+            transform: scale(1.05);
+        }
+
+        /* Unique 10-step gradient (Colors untouched, fixed active class targeting) */
+        &:nth-child(1) { 
+            border-color: #e84141; color: #333; 
+            &:hover, &.feedback-option-active { background-color: #e84141; color: #fff !important; }
+        }
+        &:nth-child(2) { 
+            border-color: #f07141; color: #333; 
+            &:hover, &.feedback-option-active { background-color: #f07141; color: #fff !important; }
+        }
+        &:nth-child(3) { 
+            border-color: #f5933d; color: #333; 
+            &:hover, &.feedback-option-active { background-color: #f5933d; color: #fff !important; }
+        }
+        &:nth-child(4) { 
+            border-color: #f8b83a; color: #333; 
+            &:hover, &.feedback-option-active { background-color: #f8b83a; color: #333 !important; } 
+        }
+        &:nth-child(5) { 
+            border-color: #f2db38; color: #333; 
+            &:hover, &.feedback-option-active { background-color: #f2db38; color: #333 !important; } 
+        }
+        &:nth-child(6) { 
+            border-color: #cddb3d; color: #333; 
+            &:hover, &.feedback-option-active { background-color: #cddb3d; color: #333 !important; } 
+        }
+        &:nth-child(7) { 
+            border-color: #a8d945; color: #333; 
+            &:hover, &.feedback-option-active { background-color: #a8d945; color: #333 !important; } 
+        }
+        &:nth-child(8) { 
+            border-color: #82d653; color: #333; 
+            &:hover, &.feedback-option-active { background-color: #82d653; color: #fff !important; }
+        }
+        &:nth-child(9) { 
+            border-color: #58d474; color: #333; 
+            &:hover, &.feedback-option-active { background-color: #58d474; color: #fff !important; }
+        }
+        &:nth-child(10) { 
+            border-color: #29cfae; color: #333; 
+            &:hover, &.feedback-option-active { background-color: #29cfae; color: #fff !important; }
+        }
+    }
+}
+
+.feedback-rate-explanation {
+    display: flex;
+    justify-content: space-between;
+    
+    p {
+        margin: 0;
+        font-size: 0.85rem;
+        color: #a3a3a3; 
+    }
+}
