@@ -11,10 +11,10 @@ import InlineError from "../../../shared/ui/InlineError/InlineError.jsx";
 import { MedicalStaffFilters } from "./MedicalStaffFilters.jsx";
 
 export function MedicalStaffLayout() {
-	const [filtersOpened, setFiltersOpened] = useState(false);
-	const [searchParams] = useSearchParams();
-	const dispatch = useDispatch();
-	const { isBookingModalOpened } = useSelector((state) => state.ui);
+	const [filtersOpened, setFiltersOpened] = useState(false)
+	const [searchParams] = useSearchParams()
+	const dispatch = useDispatch()
+	const { isBookingModalOpened } = useSelector((state) => state.ui)
 
 	const { data, error, isFetching, isError, refetch } =
 		useGetMedicalStaffQuery();

@@ -4,11 +4,12 @@ import hamburg from "../../../shared/assets/images/hamburg.png";
 import logo from "../../../shared/assets/images/logo.png";
 import profile from "../../../shared/assets/images/profile.png";
 import { toggleSidebar } from "../../../shared/model/uiSlice";
+import { useSelector } from "react-redux";
 import "./navbar.scss";
 
 export function NavBar() {
 	const dispatch = useDispatch();
-
+    const { currentUser } = useSelector((state) => state.user)
 	return (
 		<header className="navbar">
 			<div className="navbar-container">
@@ -30,7 +31,7 @@ export function NavBar() {
 						<img src={bell} alt="notifications" />
 					</button>
 					<div className="profile-wrapper">
-						<img src={profile} alt="profile" className="profile-avatar" />
+						<img src={`https://i.pravatar.cc/150?u=${currentUser.id}`} alt={profile} className="profile-avatar" />
 					</div>
 				</div>
 			</div>

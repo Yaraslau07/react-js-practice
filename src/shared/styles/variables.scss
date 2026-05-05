@@ -1,7 +1,9 @@
+/* --- Primary Colors --- */
 $primary-green: #22c55e;
 $primary-light: #f0fdf4; 
 $primary-dark: #166534;
 
+/* --- Status Colors --- */
 $status-success: #22c55e; 
 $status-warning: #f59e0b; 
 $status-error: #ef4444;
@@ -14,13 +16,17 @@ $status-error-text-dark: #991b1b;
 $status-error-hover-bg: #fee2e2;      
 $status-error-hover-border: #fca5a5;
 
+/* --- Grayscale --- */
+$white: #ffffff;
 $gray-50: #f9fafb;
+$gray-100: #f3f4f6;  /* Added for softer borders */
 $gray-200: #e5e7eb;
+$gray-400: #9ca3af;  /* Added for subtle icons/labels */
+$gray-500: #6b7280;  /* Added for secondary text/table headers */
 $gray-600: #4b5563;
 $gray-900: #111827;
 
-$white: #ffffff;
-
+/* --- Layout & Effects --- */
 $border-radius-md: 8px;
 $border-radius-sm: 4px;
 $transition-fast: 0.15s ease-in-out;
