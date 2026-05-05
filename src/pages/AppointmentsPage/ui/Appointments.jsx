@@ -1,9 +1,10 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback } from "react";
 import "./appointments.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { deleteAppointment, editAppointment } from "../../../entities/Appointments";
 import { generateTimeSlotes } from "../../../features/BookAppointmentModal";
+import { PopUp } from "../../../shared/ui/popUp/PopUp.jsx";
 
 export function Appointments() {
   const dispatch = useDispatch();
@@ -15,13 +16,25 @@ export function Appointments() {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [editForm, setEditForm] = useState({ date: "", time: "" });
+
+  const [isPopUpOpened, setIsPopUpOpened] = useState(false)
+  const [popUpMessage, setPopUpMessage] = useState("")
+  const [popUpType, setPopUpType] = useState("")
+    
+  const handlePopUpClose = useCallback(() => {
+        setIsPopUpOpened(false)
+      }, [])
+  
+  const triggerPopUpSuccess = (message = "Edited successfully") => {
+        setPopUpType("success")
+        setPopUpMessage(message)
+        setIsPopUpOpened(true)
+      }
   
   const calcAvailableSlots = useMemo(() => {
     if (!activeAppointment || !editForm.date) return [];
      const allSlots =  generateTimeSlotes(activeAppointment.doctorFrom, activeAppointment.doctorTo)
-     console.log(allSlots)
      const bookedSlotes = appointments.filter((app) => app.doctorId === activeAppointment.doctorId && app.date === editForm.date && app.time !== activeAppointment.time).map((app) => app.time)
-     console.log(bookedSlotes)
      return allSlots.filter((el) => !bookedSlotes.includes(el))
   },[editForm, activeAppointment, appointments]) 
 
@@ -45,6 +58,7 @@ export function Appointments() {
     dispatch(deleteAppointment({ id: activeAppointment.id }))
     setIsDeleteModalOpen(false);
     setActiveAppointment(null)
+    triggerPopUpSuccess("Deleted successfully")
   };
 
   const openEditModal = (app) => {
@@ -63,6 +77,7 @@ export function Appointments() {
     );
     setIsEditModalOpen(false)
     setActiveAppointment(null)
+    triggerPopUpSuccess()
   };
 
   const closeModals = () => {
@@ -157,6 +172,12 @@ export function Appointments() {
             </div>
           </div>
         </div>
+      )}
+      { isPopUpOpened && (
+        <PopUp 
+        type={popUpType}
+        message={popUpMessage}
+        onClose={handlePopUpClose}/>
       )}
     </div>
   );

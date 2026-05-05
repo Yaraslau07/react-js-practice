@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { useGetMedicalStaffQuery } from "../../../entities/MedicalStaff/index.js";
 import "./medicalStaffLayout.scss";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,6 +8,7 @@ import { Pagination } from "../../../features/StaffPagination/index.js";
 import { openBookingModal } from "../../../shared/model/uiSlice.js";
 import { EmptySearch } from "../../../shared/ui/EmptySearch/EmptySearch.jsx";
 import InlineError from "../../../shared/ui/InlineError/InlineError.jsx";
+import { PopUp } from "../../../shared/ui/popUp/PopUp.jsx";
 import { MedicalStaffFilters } from "./MedicalStaffFilters.jsx";
 
 export function MedicalStaffLayout() {
@@ -15,6 +16,20 @@ export function MedicalStaffLayout() {
 	const [searchParams] = useSearchParams()
 	const dispatch = useDispatch()
 	const { isBookingModalOpened } = useSelector((state) => state.ui)
+
+	const [isPopUpOpened, setIsPopUpOpened] = useState(false)
+	const [popUpMessage, setPopUpMessage] = useState("")
+	const [popUpType, setPopUpType] = useState("")
+			
+	const handlePopUpClose = useCallback(() => {
+		setIsPopUpOpened(false)
+	}, [])
+		
+	const triggerPopUpSuccess = () => {
+		setPopUpType("success")
+		setPopUpMessage("Booking made successfuly")
+		setIsPopUpOpened(true)
+	}
 
 	const { data, error, isFetching, isError, refetch } =
 		useGetMedicalStaffQuery();
@@ -132,10 +147,16 @@ export function MedicalStaffLayout() {
 					</div>
 					<div>
 						{totalPages > 1 && <Pagination totalPages={totalPages} />}
-						{isBookingModalOpened && <BookingModal />}
+						{isBookingModalOpened && <BookingModal triggerPopUp={triggerPopUpSuccess}/>}
 					</div>
 				</>
 			)}
+			{ isPopUpOpened && (
+				<PopUp 
+				type={popUpType}
+				message={popUpMessage}
+				onClose={handlePopUpClose}/>
+			 )}
 		</div>
 	);
 }
