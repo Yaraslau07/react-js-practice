@@ -51,6 +51,7 @@ export function BookingModal() {
 				doctorName: selectedDoctor.fullname,
 				date,
 				time,
+                specialization: selectedDoctor.specialization,
                 doctorFrom: selectedDoctor.hoursFrom,
                 doctorTo: selectedDoctor.hoursTo
 			}),

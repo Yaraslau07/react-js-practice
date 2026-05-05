@@ -1,6 +1,7 @@
 import { dummyApi } from "../../../shared/api/dummyAPi";
+import { setUser } from "../../User";
 
-const randomUser = Math.floor(Math.random() * 100) + 50
+const randomUser = Math.floor(Math.random() * 10) + 50
 export const getUserApi = dummyApi.injectEndpoints({
     endpoints: (builder) => ({
         getUser: builder.query({
@@ -39,10 +40,20 @@ export const getUserApi = dummyApi.injectEndpoints({
                         }    
                     }))
                 }
+            },
+
+            async onQueryStarted(arg, {dispatch, queryFulfilled}){
+                 try{
+                    const { data } = await queryFulfilled
+                    if(data){
+                        dispatch(setUser(data.user[0]))
+                    }
+                 }catch(err){
+                   console.log(err)
+                 }
             }
         })
     })
 })
 
-export const { useGetUser } = getUserApi
-
+export const { useGetUserQuery } = getUserApi

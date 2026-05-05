@@ -1,1 +1,1 @@
-export { default as userReducer ,setUser, updateContactInfo, updatePersonalInfo, updateContactPreferences, updateInsuranceInfo, setActivities, setFeedback, setSurveys, addActivity, addFeedback, addSurveys } from './model/userSlice.js'
+export { default as userReducer ,setUser, updateContactPreferences, addFeedback } from './model/userSlice.js'

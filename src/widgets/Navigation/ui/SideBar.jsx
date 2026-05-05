@@ -4,7 +4,7 @@ import "./sidebar.scss";
 
 export function SideBar() {
 	const links = [
-		{ text: "Dashboard", to: "/dashboard" },
+		{ text: "Dashboard", to: "/" },
 		{ text: "Apointments", to: "/appointments" },
 		{ text: "Medical staff", to: "/medical-staff" },
 		{ text: "Feedback", to: "/feedback" },

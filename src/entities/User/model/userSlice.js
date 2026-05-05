@@ -13,7 +13,7 @@ const userSlice = createSlice({
             state.currentUser = action.payload;
         },
         
-        updateContactInfo: (state, action) => {
+        /*updateContactInfo: (state, action) => {
             state.currentUser.contactInfo = {...state.currentUser.contactInfo,...action.payload}
         },
 
@@ -24,10 +24,6 @@ const userSlice = createSlice({
        
         updateInsuranceInfo: (state, action) => {
             state.currentUser.insurance = {...state.currentUser.insurance,...action.payload}
-        },
-
-        updateContactPreferences: (state, action) => {
-           state.currentUser.contact_preferences = {...state.currentUser.contact_preferences,...action.payload}
         },
 
         setActivities: (state, action) => {
@@ -48,6 +44,9 @@ const userSlice = createSlice({
 
         addSurveys: (state, action) => {
             state.surveys.unshift(action.payload)
+        },*/
+        updateContactPreferences: (state, action) => {
+           state.currentUser.contact_preferences = {...state.currentUser.contact_preferences,...action.payload}
         },
 
         addFeedback: (state, action) => {
@@ -56,7 +55,7 @@ const userSlice = createSlice({
 	},
 });
 
-export const { setUser, updateContactInfo, updatePersonalInfo, updateContactPreferences, updateInsuranceInfo, setActivities, setFeedback, setSurveys, addActivity, addFeedback, addSurveys } =
+export const { setUser, updateContactPreferences, addFeedback } =
 	userSlice.actions;
 
 export default userSlice.reducer
