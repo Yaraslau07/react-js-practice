@@ -5,14 +5,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  height: 80vh;
   padding: 2rem;
   text-align: center;
   color: v.$gray-900;
+  
 
   .error-icon {
-    width: 64px;
-    height: 64px;
+    width: 4rem;
+    height: 4rem;
     color: v.$status-error;
     margin-bottom: 1rem;
   }
@@ -26,7 +27,7 @@
   .error-message {
     font-size: 1.125rem;
     color: v.$gray-600; 
-    max-width: 400px;
+    max-width: 25rem;
     margin-bottom: 1.5rem;
     line-height: 1.5;
   }

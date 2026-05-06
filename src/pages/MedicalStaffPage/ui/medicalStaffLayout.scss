@@ -3,16 +3,16 @@
 .medical-staff-page {
   flex: 1;  
   background: v.$white;
-  border-radius: 12px;
-  padding: 24px;
-  margin: 20px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  border-radius: v.$spacing-md;
+  padding: v.$spacing-lg;
+  margin: 1.25rem;
+  box-shadow: v.$box-shadow-light;
 
   .page-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 24px;
+    margin-bottom: v.$spacing-lg;
 
     .page-title {
       font-size: 1.25rem;
@@ -23,11 +23,11 @@
     .filter-btn {
       display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 6px 16px;
+      gap: v.$spacing-sm;
+      padding: 0.4rem 1rem;
       background: none;
       border: 1px solid v.$gray-200;
-      border-radius: 20px;
+      border-radius: 1.25rem;
       color: v.$primary-green;
       font-size: 0.85rem;
       cursor: pointer;
@@ -55,7 +55,7 @@
 
     th {
       text-align: left;
-      padding: 12px;
+      padding: v.$spacing-md;
       color: v.$gray-600;
       font-size: 0.75rem;
       font-weight: 400;
@@ -69,7 +69,7 @@
     }
 
     td {
-      padding: 16px 12px;
+      padding: v.$spacing-lg v.$spacing-md;
       vertical-align: middle;
       color: v.$gray-900;
       font-size: 0.875rem;
@@ -78,11 +78,11 @@
     .name-cell {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: v.$spacing-md;
 
       .avatar {
-        width: 44px;
-        height: 44px;
+        width: 2.75rem;
+        height: 2.75rem;
         border-radius: 50%;
         object-fit: cover;
       }
@@ -99,7 +99,7 @@
     .book-link {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: v.$spacing-sm;
       background: none;
       border: none;
       color: v.$primary-green;
@@ -119,15 +119,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 24px;
-    padding-top: 20px;
+    margin-top: v.$spacing-lg;
+    padding-top: 1.25rem;
     border-top: 1px solid v.$gray-50;
 
     button {
-      padding: 8px 16px;
+      padding: 0.5rem 1rem;
       border: 1px solid v.$gray-200;
       background: white;
-      border-radius: 4px;
+      border-radius: 0.25rem;
       cursor: pointer;
       color: v.$gray-600;
 
@@ -138,6 +138,56 @@
     .page-counter {
       font-size: 0.875rem;
       color: v.$gray-600;
+    }
+  }
+}
+
+@media (max-width: v.$breakpoint-md) {
+  .staff-table {
+    display: block;
+
+    thead {
+      display: none; 
+    }
+
+    tbody, tr, td {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    tr {
+      margin-bottom: v.$spacing-lg;
+      border: 1px solid v.$gray-200;
+      border-radius: v.$border-radius-md;
+      padding: v.$spacing-sm v.$spacing-md;
+      box-shadow: v.$box-shadow-subtle;
+      align-items: center;
+
+    }
+
+    td {
+      width: 100%;
+      display: flex;
+      justify-content: space-between; 
+      align-items: center;
+      text-align: right;
+      padding: v.$spacing-md 0;
+      border-bottom: 1px solid v.$gray-50;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &::before {
+        content: attr(data-label);
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: v.$gray-500;
+        text-transform: uppercase;
+        text-align: left;
+        margin-right: v.$spacing-md;
+      }
     }
   }
 }

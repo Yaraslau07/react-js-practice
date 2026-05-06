@@ -12,7 +12,7 @@
   border: 2px dashed v.$gray-200; 
   margin: 1rem 0;
   width: 100%;
-  min-height: 300px; 
+  min-height: 20rem; 
 
   .empty-state-icon {
     font-size: 3rem;
@@ -31,7 +31,7 @@
     font-size: 0.875rem;
     color: v.$gray-600; 
     margin: 0;
-    max-width: 350px; 
+    max-width: 22rem; 
     line-height: 1.5;
   }
 }

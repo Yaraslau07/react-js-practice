@@ -3,16 +3,16 @@
 .inline-error-container {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 1rem;
   background-color: v.$status-error-light;
   border: 1px solid v.$status-error-border;
-  border-radius: 8px;
-  padding: 16px 20px;
-  margin: 20px 0;
+  border-radius: v.$spacing-sm;
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0;
 
   .error-icon {
-    width: 24px;
-    height: 24px;
+    width: v.$spacing-lg;
+    height: v.$spacing-lg;
     color: v.$status-error;
     flex-shrink: 0;
   }
@@ -24,7 +24,7 @@
       color: v.$status-error-text-dark;
       font-size: 0.95rem;
       font-weight: 600;
-      margin: 0 0 4px 0;
+      margin: 0 0 0.25rem 0;
     }
 
     .error-message {
@@ -38,8 +38,8 @@
     background-color: v.$white;
     color: v.$status-error;
     border: 1px solid v.$status-error-border;
-    padding: 8px 16px;
-    border-radius: 6px;
+    padding: v.$spacing-sm 1rem;
+    border-radius: v.$spacing-sm;
     font-size: 0.85rem;
     font-weight: 500;
     cursor: pointer;

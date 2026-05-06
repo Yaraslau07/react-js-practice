@@ -4,16 +4,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
-  margin-top: 24px;
-  padding: 16px 0;
+  gap: 1rem;
+  margin-top: v.$spacing-lg;
+  padding: 1rem 0;
 
   button {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 8px 16px;
-    font-size: 14px;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
     font-weight: 500;
     color: v.$gray-900;
     background-color: v.$white;
@@ -37,7 +37,7 @@
   }
 
   .page-indicator {
-    font-size: 14px;
+    font-size: 0.85rem;
     color: v.$gray-600;
     font-weight: 500;
     user-select: none;

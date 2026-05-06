@@ -1,6 +1,9 @@
 $primary-green: #22c55e;
 $primary-light: #f0fdf4; 
 $primary-dark: #166534;
+$red: #c53030;
+$light-green: #bbf7d0;
+$light-green-bg: #f0fdf4;
 
 $status-success: #22c55e; 
 $status-warning: #f59e0b; 
@@ -23,14 +26,22 @@ $gray-500: #6b7280;
 $gray-600: #4b5563;
 $gray-900: #111827;
 
-$border-radius-md: 8px;
-$border-radius-sm: 4px;
+$spacing-sm: 0.5rem;  
+$spacing-md: 0.75rem; 
+$spacing-lg: 1.5rem;  
+
+$border-radius-md: 0.5rem;
+$border-radius-sm: 0.25rem;
 
 $transition-fast: 0.15s ease-in-out;
 $transition-base: all 0.2s ease-in-out;
 
+$box-shadow-green:  0 0 0 2px rgba($primary-green, 0.1);
+$box-shadow-light: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.05);
 $box-shadow-subtle: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.08);
 
+$breakpoint-md: 48rem;
+$breakpoint-lg: 64rem;
 
 $rating-scale: (
     1:  (#e84141, $white),

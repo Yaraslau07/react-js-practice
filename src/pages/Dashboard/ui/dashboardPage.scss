@@ -3,27 +3,27 @@
 .patient-dashboard {
     background-color: v.$white;
     border-radius: v.$border-radius-md;
-    box-shadow: 0 2px 24px rgba(0, 0, 0, 0.04); 
-    margin: 24px auto;
-    padding: 32px;
+    box-shadow: 0 2px 1.5rem rgba(0, 0, 0, 0.04); 
+    margin: 1.5rem auto;
+    padding: 2rem;
     font-family: sans-serif;
-    max-width: 1400px; 
+    max-width: 87rem; 
 }
 
 .dashboard-header {
     border-bottom: 1px solid v.$gray-200;
-    margin-bottom: 24px;
+    margin-bottom: v.$spacing-lg;
 }
 
 .user-profile-summary {
     display: flex;
     align-items: center;
-    gap: 16px;
-    margin-bottom: 32px;
+    gap: 1rem;
+    margin-bottom: 2rem;
 
     .avatar {
-        width: 64px;
-        height: 64px;
+        width: 4rem;
+        height: 4rem;
         border-radius: 50%;
         object-fit: cover;
     }
@@ -31,27 +31,27 @@
     .user-titles {
         h1 {
             margin: 0 0 4px 0;
-            font-size: 24px;
+            font-size: v.$spacing-lg;
             color: v.$gray-900;
         }
         .role-badge {
             color: v.$gray-600;
-            font-size: 14px;
+            font-size: 0.9rem;
         }
     }
 }
 
 .dashboard-tabs {
     display: flex;
-    gap: 32px;
+    gap: 2rem;
 
     .tab {
         background: none;
         border: none;
-        padding: 0 0 16px 0;
+        padding: 0 0 1rem 0;
         color: v.$gray-600;
         font-weight: 500;
-        font-size: 15px;
+        font-size: 1rem;
         cursor: pointer;
         position: relative;
 
@@ -81,7 +81,7 @@
     @media (max-width: 1024px) {
         grid-template-columns: repeat(2, 1fr);
     }
-    @media (max-width: 768px) {
+    @media (max-width: v.$breakpoint-md) {
         grid-template-columns: 1fr;
     }
 }
@@ -89,24 +89,24 @@
 .grid-column {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: v.$spacing-md;
 }
 
 
 .card {
     border: 1px solid v.$gray-200;
-    border-radius: 12px; 
-    padding: 24px; 
+    border-radius: v.$spacing-md; 
+    padding: v.$spacing-lg; 
     background: v.$white;
 
     .card-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 24px;
+        margin-bottom: v.$spacing-lg;
 
         h2 {
-            font-size: 16px;
+            font-size: 1rem;
             margin: 0;
             color: v.$gray-900;
             font-weight: 600;
@@ -116,14 +116,14 @@
             background: none;
             border: 1px solid v.$gray-200;
             border-radius: 35%;
-            width: 32px;
-            height: 32px;
+            width: 2rem;
+            height: 2rem;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             color: v.$primary-green;
-            font-size: 16px;
+            font-size: 1rem;
             
             &:hover {
                 background: v.$gray-50;
@@ -132,7 +132,7 @@
     }
 
     .info-group {
-        margin-bottom: 20px;
+        margin-bottom: 1.25rem;
 
         &:last-child {
             margin-bottom: 0;
@@ -141,13 +141,13 @@
         label {
             display: block;
             color: v.$gray-500;
-            font-size: 12px;
-            margin-bottom: 6px;
+            font-size: v.$spacing-md;
+            margin-bottom: 0.4rem;
         }
 
         p {
             margin: 0;
-            font-size: 14px;
+            font-size: 0.9rem;
             color: v.$gray-900;
             font-weight: 500;
             
@@ -159,39 +159,39 @@
 }
 
 .table-card {
-    padding: 24px 0 0 0; 
+    padding: v.$spacing-lg 0 0 0; 
 
     .card-header {
-        padding: 0 24px;
+        padding: 0 v.$spacing-lg;
     }
 }
 
 .dashboard-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 13px;
+    font-size: 0.8rem;
 
     th {
         text-align: left;
         color: v.$gray-500;
-        padding: 12px 24px;
+        padding: v.$spacing-md v.$spacing-lg;
         font-weight: 500;
-        font-size: 12px;
+        font-size: v.$spacing-md;
         background-color: v.$gray-50;
         border-top: 1px solid v.$gray-200;
         border-bottom: 1px solid v.$gray-200;
     }
 
     td {
-        padding: 16px 24px;
+        padding: 1rem v.$spacing-lg;
         border-bottom: 1px solid v.$gray-100;
         vertical-align: middle;
         color: v.$gray-900;
 
         span {
             color: v.$gray-500;
-            font-size: 12px;
-            margin-top: 4px;
+            font-size: v.$spacing-md;
+            margin-top: 0.25rem;
             display: block;
         }
     }
@@ -200,27 +200,25 @@
         border-bottom: none;
     }
 
-    .status-warning { color: #f59e0b; font-weight: 500; } 
-    .status-success { color: v.$primary-green; font-weight: 500; }
-    .stars { color: #fbbf24; font-size: 16px; letter-spacing: 2px;}
+    .stars { color: v.$status-warning; font-size: 1rem; letter-spacing: 2px;}
 }
 
 .activities-input {
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
     position: relative;
     
     input {
         width: 85%;
-        padding: 12px 40px 12px 16px; 
+        padding: v.$spacing-md 2.5rem v.$spacing-md 1rem; 
         border: 1px solid v.$gray-200;
-        border-radius: 8px;
+        border-radius: 0.5rem;
         background-color: v.$gray-50;
         outline: none;
     }
 
     .input-icon {
         position: absolute;
-        right: 16px;
+        right: 1rem;
         top: 50%;
         transform: translateY(-50%);
         color: v.$gray-400;
@@ -229,14 +227,14 @@
 
 .inner-tabs {
     display: flex;
-    gap: 24px;
+    gap: v.$spacing-lg;
     border-bottom: 1px solid v.$gray-200;
-    margin-bottom: 24px;
+    margin-bottom: v.$spacing-lg;
 
     .inner-tab {
         background: none;
         border: none;
-        padding: 8px 0;
+        padding: 0.5rem 0;
         color: v.$gray-500;
         cursor: pointer;
         font-weight: 500;
@@ -252,16 +250,16 @@
 .timeline-item {
     display: flex;
     align-items: flex-start;
-    gap: 16px;
-    margin-bottom: 24px;
+    gap: 1rem;
+    margin-bottom: v.$spacing-lg;
 
     &:last-child {
         margin-bottom: 0;
     }
 
     .timeline-icon {
-        width: 40px;
-        height: 40px;
+        width: 2.5rem;
+        height: 2.5rem;
         background: v.$gray-50;
         border: 1px solid v.$gray-200;
         border-radius: 50%;
@@ -279,7 +277,7 @@
     }
 
     .timeline-date {
-        font-size: 12px;
+        font-size: v.$spacing-md;
         color: v.$gray-500;
         white-space: nowrap;
         margin-top: 2px;
@@ -287,23 +285,23 @@
 }
 
 .preferences-card {
-    padding: 24px 0 0 0;
+    padding: v.$spacing-lg 0 0 0;
     
     .card-header {
-        padding: 0 24px;
+        padding: 0 v.$spacing-lg;
     }
 }
 
 .preferences-table {
     .pref-header {
         background-color: v.$gray-50;
-        padding: 12px 24px;
+        padding: v.$spacing-md v.$spacing-lg;
         border-top: 1px solid v.$gray-200;
         border-bottom: 1px solid v.$gray-200;
         
         span {
             color: v.$gray-500;
-            font-size: 12px;
+            font-size: v.$spacing-md;
             font-weight: 500;
         }
     }
@@ -317,8 +315,8 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 16px 24px;
-        font-size: 14px;
+        padding: 1rem v.$spacing-lg;
+        font-size: 0.8rem;
         font-weight: 500;
         color: v.$gray-900;
         border-bottom: 1px solid v.$gray-100;
@@ -330,18 +328,18 @@
         .toggle-group {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 12px;
+            gap: v.$spacing-md;
+            font-size: v.$spacing-md;
 
             .label { color: v.$gray-400; font-weight: 600;}
             .allow { color: v.$primary-green; font-weight: 600;}
 
             .toggle {
                 appearance: none;
-                width: 40px;
-                height: 22px;
+                width: 2.5rem;
+                height: v.$spacing-lg;
                 background: v.$gray-200;
-                border-radius: 20px;
+                border-radius: 1.25rem;
                 position: relative;
                 cursor: pointer;
                 outline: none;
@@ -352,12 +350,12 @@
                     position: absolute;
                     top: 3px;
                     left: 3px;
-                    width: 16px;
-                    height: 16px;
+                    width: 1rem;
+                    height: 1rem;
                     background: white;
                     border-radius: 50%;
                     transition: 0.3s;
-                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    box-shadow: v.$box-shadow-light;
                 }
 
                 &:checked {
@@ -368,7 +366,7 @@
                 }
                 
                 &:not(:checked) {
-                    background: #ef4444; 
+                    background: v.$red; 
                 }
             }
         }
@@ -376,8 +374,8 @@
 }
 
 .btn-submit:disabled {
-    background-color: #a0aab2; /* A muted grey color */
-    color: #ffffff;
-    cursor: not-allowed; /* Shows the red circle/slash cursor */
-    opacity: 0.6; /* Makes it look slightly faded */
+    background-color: v.$gray-400;
+    color: v.$white;
+    cursor: not-allowed;
+    opacity: 0.6;
 }
