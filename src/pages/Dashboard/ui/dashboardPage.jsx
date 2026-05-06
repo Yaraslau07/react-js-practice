@@ -21,7 +21,7 @@ const survays = [
 export const Dashboard = () => {
      
     const [isFeedBackOpened, setIsFeedBackOpened ] = useState(false)
-    const [selectedDoc, setSelectedDoc] = useState("Boris")
+    const [selectedDoc, setSelectedDoc] = useState("")
     const [rating, setRating] = useState(1)
     const [isPopUpOpened, setIsPopUpOpened] = useState(false)
     const [popUpMessage, setPopUpMessage] = useState("")
@@ -287,7 +287,7 @@ export const Dashboard = () => {
                                     <tr key={item.id}>
                                         <td>{item.caseTitle}</td>
                                         <td>{item.date}</td>
-                                        <td className="stars">{item.status || "★★★★★"}</td>
+                                        <td className="stars">{item.status || item.rate || "*****"}</td>
                                     </tr>
                                 ))}
                             </tbody>
@@ -343,10 +343,12 @@ export const Dashboard = () => {
                         <h3>Leave Feedback</h3>
                         <form onSubmit={handleSubmitFeedback}>
                             <div className="form-group">
-                                <p>Select Doctor:</p>
+                                {availableDoctors.length > 0 ? (
+                                 <>   
+                                <p>Select Doctor:</p>    
                                 <select 
                                 required 
-                                value={selectedDoc || null} 
+                                value={selectedDoc} 
                                 onChange={(e) => setSelectedDoc(e.target.value)}
                             >
                                 <option value="" disabled>Choose a doctor</option>
@@ -356,9 +358,16 @@ export const Dashboard = () => {
                                     </option>
                                 ))}
                             </select>
+                            </>) : (
+                                <p>
+                                    U first need to schedule an appointment with the Doctor
+                                </p>
+                            )}
                             </div>
                             
                             <div className="form-group">
+                                { availableDoctors.length !== 0 && (
+                                <>    
                                 <p>Rating:</p>
                                 <div className="star-rating" style={{ display: "flex", gap: "8px", marginTop: "5px" }}>
                                     {[1, 2, 3, 4, 5].map((star) => (
@@ -379,11 +388,13 @@ export const Dashboard = () => {
                                         </button>
                                     ))}
                                 </div>
+                                </>
+                                )}
                             </div>
                             
                             <div className="modal-actions">
                                 <button type="button" className="btn-cancel" onClick={handleCloseFeedbackModal}>Cancel</button>
-                                <button type="submit" className="btn-submit">Submit</button>
+                                <button type="submit" className="btn-submit" disabled={availableDoctors.length === 0 || selectedDoc === ""}>Submit</button>
                             </div>
                         </form>
                     </div>

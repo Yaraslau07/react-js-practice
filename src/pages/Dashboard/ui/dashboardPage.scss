@@ -374,3 +374,10 @@
         }
     }
 }
+
+.btn-submit:disabled {
+    background-color: #a0aab2; /* A muted grey color */
+    color: #ffffff;
+    cursor: not-allowed; /* Shows the red circle/slash cursor */
+    opacity: 0.6; /* Makes it look slightly faded */
+}

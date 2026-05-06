@@ -1,9 +1,7 @@
-/* --- Primary Colors --- */
 $primary-green: #22c55e;
 $primary-light: #f0fdf4; 
 $primary-dark: #166534;
 
-/* --- Status Colors --- */
 $status-success: #22c55e; 
 $status-warning: #f59e0b; 
 $status-error: #ef4444;
@@ -16,17 +14,33 @@ $status-error-text-dark: #991b1b;
 $status-error-hover-bg: #fee2e2;      
 $status-error-hover-border: #fca5a5;
 
-/* --- Grayscale --- */
 $white: #ffffff;
 $gray-50: #f9fafb;
-$gray-100: #f3f4f6;  /* Added for softer borders */
+$gray-100: #f3f4f6;  
 $gray-200: #e5e7eb;
-$gray-400: #9ca3af;  /* Added for subtle icons/labels */
-$gray-500: #6b7280;  /* Added for secondary text/table headers */
+$gray-400: #9ca3af;  
+$gray-500: #6b7280;  
 $gray-600: #4b5563;
 $gray-900: #111827;
 
-/* --- Layout & Effects --- */
 $border-radius-md: 8px;
 $border-radius-sm: 4px;
+
 $transition-fast: 0.15s ease-in-out;
+$transition-base: all 0.2s ease-in-out;
+
+$box-shadow-subtle: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.08);
+
+
+$rating-scale: (
+    1:  (#e84141, $white),
+    2:  (#f07141, $white),
+    3:  (#f5933d, $white),
+    4:  (#f8b83a, $gray-900),
+    5:  (#f2db38, $gray-900),
+    6:  (#cddb3d, $gray-900),
+    7:  (#a8d945, $gray-900),
+    8:  (#82d653, $white),
+    9:  (#58d474, $white),
+    10: (#29cfae, $white)
+);

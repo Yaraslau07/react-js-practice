@@ -4,6 +4,7 @@ import ErrorComponent from "../shared/ui/ErrorComponent/ErrorComponent.jsx";
 import { MainLayout } from "../widgets/MainLayout/index.js";
 import { Appointments } from "../pages/AppointmentsPage/index.js";
 import { Dashboard } from "../pages/Dashboard/index.js";
+import { Feedback } from "../pages/Feedback/index.js";
 
 export const route = createBrowserRouter([
 	{
@@ -25,9 +26,13 @@ export const route = createBrowserRouter([
 					{
 						path: "/appointments",
                         element: <Appointments />
-					}
+					},
+					{
+						path: "/feedback",
+						element: <Feedback />
+					},
 				],
 			},
 		],
 	},
-]);
+])

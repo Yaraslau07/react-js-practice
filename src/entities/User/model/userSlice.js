@@ -52,10 +52,20 @@ const userSlice = createSlice({
         addFeedback: (state, action) => {
             state.feedback.unshift(action.payload)
         },
+
+        editFeedback: (state, action) => {
+            const idToEdit = action.payload.id
+            state.feedback =  state.feedback.map((feed) => {
+                if(feed.id === idToEdit){
+                    return action.payload
+                }
+                return feed
+            })
+        }
 	},
 });
 
-export const { setUser, updateContactPreferences, addFeedback } =
+export const { setUser, updateContactPreferences, addFeedback, editFeedback } =
 	userSlice.actions;
 
 export default userSlice.reducer
